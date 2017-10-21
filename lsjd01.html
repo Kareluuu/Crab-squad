@@ -1,0 +1,128 @@
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>K船长</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <script src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+    angular.module('ionicApp', ['ionic'])
+
+    .controller('MyCtrl', function($scope) {
+
+    });
+    </script>
+    <style>
+    body {
+    cursor: url('https://www.runoob.com/static/img/finger.png'), auto;
+    }
+
+    .button button-balanced {
+      margin-left: 25%;
+    }
+    .null {
+      height: 35px;
+    }
+    </style>
+</head>
+<body ng-controller="MyCtrl">
+
+    <ion-header-bar class="bar bar-header bar-light">
+      <a class="button icon-left ion-chevron-left button-clear button-dark" href="牢骚舰队.html">返回</a>
+      <h1 class="title">K船长 | 第一集</h1>
+    </ion-header-bar>
+
+    <ion-content>
+       <div>
+          <div class="_banner">
+              <img src="images/comic/lsjd01/_cover1.jpg" style="width: 100%;">
+          </div>
+
+          <div class="_title" style="padding: 15px;">
+          	 <h3>K船长</h3>
+          	 <p style="color:#666;"><i class="icon ion-ios-paper-outline" style="padding-right: 5px;"></i>谢晓聪/牢骚舰队</p>
+          </div>
+
+          <div class="_article" style="padding: 15px;font-size:1.2em;letter-spacing:2px;line-height:1.5;">
+          	  <img src="images/comic/lsjd01/1.jpg" style="width:100%;">
+               
+              <!--打赏按钮-->
+              <button class="button button-balanced" style="margin-left: 21%;" onClick="location.href='pay.html'">
+                <i class="icon ion-coffee"></i>
+                请作者喝杯咖啡吧
+              </button>
+
+              <!--占行-->
+              <div class="null"></div>  
+
+              <!--提醒卡片-->
+              <div class="_remian">
+    	           <div class="card">
+    	               <div class="item item-divider" style="font-size: 0.6em;">
+                          @《牢骚舰队》版权归 karelus.com 所有.
+                       </div>
+                       <div class="item item-text-wrap" style="font-size:12px;">
+                           <i class="icon ion-ios-email-outline" style="padding-right: 5px;"></i>562820976@qq.com | 投稿
+                       </div>
+    	           </div>
+              </div>
+          </div>
+
+          <div class="_card" style="background:#efefef;height:110px;padding-top:5px;">
+              <div class="_withecard" style="background:#fff;height:100px;">
+              	<div class="list">
+
+                   <a class="item item-thumbnail-left" href="lsjd02.html" style="padding-top:30px;/*padding-left:180px;*/border:none;">
+                      <img src="images/comic/lsjd01/next_cover.png" style="position: absolute;top: 0px;left: 0px;max-width:100%;max-height:100%;width:auto;height:auto;">
+                      <h2>午餐时间</h2>
+                      <p>第二集</p>
+
+                   </a>
+                </div>
+
+             
+              </div>	
+          </div>
+
+          <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="lsjd01" data-title="K船长" data-url="http://www.karelus.com/mobile/lsjd01.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"karelus"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+       	
+       </div>
+    </ion-content>
+
+    <script type="text/javascript">
+       wx.onMenuShareAppMessage({
+         title: '', // 分享标题
+         desc: '纪录琐碎却重要的事', // 分享描述
+         link: '', // 分享链接
+         imgUrl: '', // 分享图标
+         type: '', // 分享类型,music、video或link，不填默认为link
+         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+          success: function () { 
+             // 用户确认分享后执行的回调函数
+            },
+          cancel: function () { 
+             // 用户取消分享后执行的回调函数
+            } 
+        });  
+
+    </script>
+
+    </body>
+
+
+</html>

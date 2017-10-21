@@ -1,0 +1,258 @@
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>抽屉</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <script src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+    angular.module('ionicApp', ['ionic'])
+
+    .controller('MyCtrl', function($scope) {
+
+    });
+    </script>
+
+
+    <!--字体引用-->
+    <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+
+    <style>
+    body {
+    cursor: url('https://www.runoob.com/static/img/finger.png'), auto;
+    }
+    button h1 h2 h3 { font-family: "Microsoft_YaHei","黑体"; }
+
+    /*Header颜色管理*/
+    .bar.bar-dark {
+        border-color: #444;
+        background-color: #444;
+        background-image: linear-gradient(0deg,#444,#444 50%,transparent 50%);
+        color: #fff;
+    }
+
+    /*TAB颜色管理*/
+    .tabs-striped.tabs-background-positive .tabs {
+        background-color: #444;
+        background-image: none;
+    }
+
+    .tabs-background-positive .tabs, .tabs-background-positive>.tabs {
+        background-color: #444;
+        background-image: linear-gradient(0deg,#444,#444 50%,transparent 50%);
+        border-color: #444;
+    }
+
+
+    ._cover {
+      height: 430px;
+      /*padding-top: 24%;*/
+      background-image: url('images/cover/cover_牢骚舰队_1.jpg');  
+      background-size:  100% auto;
+      background-repeat:no-repeat;
+    }
+
+    .null {
+      height: 116px;
+    }
+
+    #cover_card {
+      text-align: center;
+      height: 280px;
+      margin: 0px 20px;
+    }
+
+    .item item-text-wrap {
+      text-align: center;
+    }
+
+    /*.card h1 {
+      font-family: "Microsoft YaHei","黑体";
+      font-size: 28px;
+      text-align: center;
+    }*/
+    .card h2 {
+      font-family: "Microsoft_YaHei","黑体";
+      font-weight: bold;
+      padding-top: 1%;
+      text-align: center;
+      font-size: 24px;
+      color: #525252;
+    }
+    .card h3 {
+      font-family: "Microsoft_YaHei","黑体";
+      padding-top: 1%;
+      text-align: center;
+      color: #878787;
+    }
+    .card h3 i {
+      padding-right: 5px;
+    }
+
+    .card p{
+      padding-top: 5px;
+      font-size: 12px;
+      color: #9a9a9a;
+      text-align: center;
+    }
+
+    .cover_detils {
+      margin-top: -8px;
+      text-align: center;
+      color: #6c6c6c;
+      font-size: 14px;
+      line-height: 30px;
+
+    }
+
+    .cover_detils p i {
+      color: #9a9a9a;
+      padding-right: 6px;
+      font-size: 15px;
+    }
+    .cover_card_cover{
+      /*width: 67%;*/
+    /* margin: 0px auto; */
+    /* padding-left: 8px; */
+     /* margin-left: 17%;*/
+    }
+
+    /*.button .button-assertive {
+      background-color: #e66d50;
+    }
+    .button .button-assertive .activated {
+      background-color: #a65c4a;
+    }*/
+
+    #bt_cast {
+      width: 66%;
+      margin-top: 3%;
+      /*margin-left: 16%;*/
+    }
+
+    .update {
+      margin-top: 4px;
+    }
+
+    .update p {
+      font-size: 12px;
+      color: #878787;
+      text-align: center;
+    }
+
+
+
+
+
+
+    </style>
+</head>
+<body ng-controller="MyCtrl" style="background:#efefef;">
+    
+    <!--这里是头部-->
+    <div class="bar bar-header bar-dark">
+      <div class=logo_chouti style="margin:0 auto;">
+         <img src="images/header/1.png" style="height:95%;margin-top:5px;">
+      </div>
+    </div>
+
+    <!--这里是头部TAB-->
+    <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+      <div class="tabs">
+        <a class="tab-item active" href="#">
+          <!-- <i class="icon ion-home"></i> -->
+          第二季
+        </a>
+        <a class="tab-item" href="#">
+          <!-- <i class="icon ion-star"></i> -->
+          第一季
+        </a>
+      </div>
+    </div>
+
+
+
+    <ion-content>
+       <div class="_cover"">
+         <div class="null">
+           <span></span>
+         </div>
+    
+         <div class="card" id="cover_card">
+            <div class="item item-text-wrap">
+              <img class="cover_card_cover" src="images/cover/1.png">
+              <!-- <h1>牢骚舰队</h1> -->
+              <!-- <p>作者 | 谢晓聪</p> -->
+              <h2>#牢骚舰队#</h2>
+              <h3><i class="icon ion-edit"></i> shieh</h3>
+              <p>一支小而精明的舰队在太空中的逗逼故事...</p>
+              <button class="button button-small button-assertive" id="bt_cast" onClick="location.href='故事介绍.html'">
+                故事介绍
+              </button>
+            </div>
+         </div>
+
+         <div class="update">
+              <span class="cover_detils">
+                <P><i class="icon ion-clock"></i>心情一好就更新</P>
+              </span>
+         </div>
+
+         <a href="#"></a>
+       </div>
+       <div class="mian-article">
+         <div class="_comic" style="margin:5px 0;">
+           
+           <!--这是第一集-->
+           <div class="list">
+               <a class="item item-thumbnail-left" href="lsjd01.html" style="border:none;">
+                 <img src="images/comic/lsjdS02E01/_cover.png">
+                 <h2 style="margin:22px 0 2px 0;">侦查任务！</h2>
+                 <p>第一集</p>
+               </a>
+           </div>
+
+
+
+
+
+         </div>
+       </div>
+
+       <div class="_blank" style="height:50px;padding-top:15px;color:#cfcfcf;">
+          <p style="text-align:center;">—有一集就先将就着看吧—</p>
+       </div>
+    </ion-content>
+
+  
+  </div>
+
+    </body>
+
+  <script type="text/javascript">
+    wx.onMenuShareAppMessage({
+    title: '', // 分享标题
+    desc: '纪录琐碎却重要的事', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    } 
+});  
+
+  </script>
+  
+  <!--在线字体引用-->
+  <script type="text/javascript">
+    $youziku.load("body", "31fc15ad71bb45ca9ac5b449483b56ce", "Microsoft_YaHei");
+    /*$youziku.load("#id1,.class1,h1", "31fc15ad71bb45ca9ac5b449483b56ce", "Microsoft_YaHei");*/
+    /*．．．*/
+    $youziku.draw();
+  </script>
+</body>
+</html>

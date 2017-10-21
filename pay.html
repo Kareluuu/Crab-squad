@@ -1,0 +1,61 @@
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>故事介绍</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <script src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+    angular.module('ionicApp', ['ionic'])
+
+    .controller('MyCtrl', function($scope) {
+
+    });
+    </script>
+    <style>
+    body {
+    cursor: url('https://www.runoob.com/static/img/finger.png'), auto;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    #_detil {
+      font-size: 14px; 
+      color:#6c6c6c;
+    }
+
+
+    </style>
+</head>
+<body ng-controller="MyCtrl">
+
+    <ion-header-bar class="bar bar-header bar-light">
+      <a class="button icon-left ion-chevron-left button-clear button-dark" href="#" onclick="javascript :history.back(-1);">返回</a>
+      <h1 class="title">请作者喝杯咖啡吧</h1>
+    </ion-header-bar>
+
+    <ion-content>
+       <div>
+          <div class="_banner">
+              <img src="images/comic/pay/1.jpg" style="width: 100%;">
+          </div> 
+          
+          <div class="card">
+            <div class="item item-text-wrap">
+              <p>#<i class="icon ion-coffee"></i>一杯咖啡又能让Shieh拿起画笔继续让舰队出糗喽~#</p>
+            </div>
+          </div>
+
+          <div class="_footer">
+             <img src="">
+          </div>
+    </ion-content>
+
+    
+  </body>
+
+
+
+</html>
