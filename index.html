@@ -2,9 +2,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>牢骚舰队</title>
+    <title>抽屉</title>
     <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
-    <script src="js/ionic.bundle.min.js"></script>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <!-- <script src="js/ionic.bundle.min.js"></script> -->
+    <script src="js/ionic.bundle-PopupNightly.js"></script>
+    <script src="js/An alert dialog.js"></script>
     <script type="text/javascript">
     angular.module('ionicApp', ['ionic'])
 
@@ -14,254 +17,329 @@
     </script>
 
 
-    <!--字体引用-->
-    <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
-
     <style>
     body {
     cursor: url('https://www.runoob.com/static/img/finger.png'), auto;
     }
-    button h1 h2 h3 { font-family: "Microsoft_YaHei","黑体"; }
-
-    /*Header颜色管理*/
-    .bar.bar-dark {
-        border-color: #444;
-        background-color: #444;
-        background-image: linear-gradient(0deg,#444,#444 50%,transparent 50%);
-        color: #fff;
+    .scroll-content {
+      background-color: white;
+    }
+    .article {
+      padding-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .item{
+      border:none;
+    }
+    .bar.bar-light{
+      background: #fff;
     }
 
-    /*TAB颜色管理*/
-    .tabs-striped.tabs-background-positive .tabs {
-        background-color: #444;
-        background-image: none;
+    .has-header{
+      top: 0;
     }
 
-    .tabs-background-positive .tabs, .tabs-background-positive>.tabs {
-        background-color: #444;
-        background-image: linear-gradient(0deg,#444,#444 50%,transparent 50%);
-        border-color: #444;
+    .button.button-positive {
+     border-color: transparent;
+     background-color: #d87316;
     }
 
-
-    ._cover {
-      height: 430px;
-      /*padding-top: 24%;*/
-      /*background-image: url('images/cover/cover_牢骚舰队_1.jpg'); */ 
-      background-size:  100% auto;
-      background-repeat:no-repeat;
+    .button.button-positive.active, .button.button-positive.activated {
+      border-color: #a2a2a2;
+      background-color: #b86212; 
     }
-
-    .null {
-      height: 116px;
+    .FristTitle{
+      margin: 5px 0 5px;
+      width: 10rem;
     }
-
-    #cover_card {
-      text-align: center;
-      height: 280px;
-      margin: 0px 20px;
-    }
-
-    .item item-text-wrap {
-      text-align: center;
-    }
-
-    /*.card h1 {
-      font-family: "Microsoft YaHei","黑体";
-      font-size: 28px;
-      text-align: center;
-    }*/
-    .card h2 {
-      font-family: "Microsoft_YaHei","黑体";
-      font-weight: bold;
-      padding-top: 1%;
-      text-align: center;
-      font-size: 24px;
-      color: #525252;
-    }
-    .card h3 {
-      font-family: "Microsoft_YaHei","黑体";
-      padding-top: 1%;
-      text-align: center;
-      color: #878787;
-    }
-    .card h3 i {
-      padding-right: 5px;
-    }
-
-    .card p{
+    .SecondTitle{
       padding-top: 5px;
-      font-size: 12px;
-      color: #9a9a9a;
-      text-align: center;
+      width: 10rem;
     }
-
-    .cover_detils {
-      margin-top: -8px;
-      text-align: center;
-      color: #6c6c6c;
-      font-size: 14px;
-      line-height: 30px;
-
+    .ArticleFeeds{
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      margin-top: 15px;
     }
-
-    .cover_detils p i {
-      color: #9a9a9a;
-      padding-right: 6px;
-      font-size: 15px;
+    .ArticleColumn1{
+      padding-bottom: 5px;
+      padding: 0 0.5rem 0 1rem;
+      width: 50vw;
     }
-    .cover_card_cover{
-    width: 56%;
-    /* margin: 0px auto; */
-    /* padding-left: 8px; */
-     /* margin-left: 17%;*/
+    .ArticleColumn2{
+      padding-bottom: 5px;
+      padding: 0 1rem 0 0.5rem;
+      width: 50vw;
     }
-
-    /*.button .button-assertive {
-      background-color: #e66d50;
-    }
-    .button .button-assertive .activated {
-      background-color: #a65c4a;
-    }*/
-
-    #bt_cast {
-      width: 66%;
-      margin-top: 3%;
-      /*margin-left: 16%;*/
-    }
-
-    .update {
-      margin-top: 4px;
-    }
-
-    .update p {
-      font-size: 12px;
-      color: #878787;
-      text-align: center;
-    }
-
-    .list {
-      margin-bottom: 5px;
-    }
-
-
-
-
 
 
     </style>
 </head>
-<body ng-controller="MyCtrl" style="background:#efefef;">
-    
-    <!--这里是头部-->
-    <div class="bar bar-header bar-dark">
-      <div class=logo_chouti style="margin:0 auto;">
-         <img src="images/header/1.png" style="height:95%;margin-top:5px;">
-      </div>
-    </div>
+<body style="background:#efefef;">
 
-    <!--这里是头部TAB-->
-    <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-      <div class="tabs">
-        <a class="tab-item active" href="index.html">
-          <!-- <i class="icon ion-home"></i> -->
-          第三季
-        </a>
-      <!--   <a class="tab-item active" href="S02.html">
-          <i class="icon ion-home"></i>
-          第二季
-        </a> -->
-       <!--  <a class="tab-item" href="S01.html">
-          <i class="icon ion-star"></i>
-          第一季
-        </a> -->
-      </div>
-    </div>
-
-
-
-    <ion-content>
-       <div class="_cover"">
-         <div class="null">
-           <span></span>
-         </div>
-    
-         <div class="card" id="cover_card">
-            <div class="item item-text-wrap">
-              <img class="cover_card_cover" src="images/cover/1.png">
-              <!-- <h1>牢骚舰队</h1> -->
-              <!-- <p>作者 | 谢晓聪</p> -->
-              <h2>#牢骚舰队#</h2>
-              <h3><i class="icon ion-edit"></i> shieh</h3>
-              <p>一支小而精明的舰队在太空中的逗逼故事...</p>
-              <button class="button button-small button-assertive" id="bt_cast" onClick="location.href='故事介绍.html'">
-                故事介绍
-              </button>
+          <!--这里是头部-->
+          <!-- <ion-header-bar class="bar bar-header bar-light">
+            <div class=logo_chouti style="margin:0 auto;">
+               <img src="images/locker-06.png" style="height:70%;margin-top:5px;">
             </div>
-         </div>
+          </ion-header-bar> -->
 
-         <div class="update">
-              <span class="cover_detils">
-                <P><i class="icon ion-clock"></i>心情一好就更新</P>
-              </span>
-         </div>
+          <!--这里是文章-->
+          <ion-content>
 
-         <a href="#"></a>
-       </div>
-       <div class="mian-article">
-         <div class="_comic" style="margin:5px 0;">
-           
-
-           <!--这是第一章-->
-           <div class="list">
-               <a class="item item-thumbnail-left" href="posts/lsjdS03E01.html" style="border:none;">
-                 <img src="images/comic/lsjdS03E01/cover.jpg">
-                 <h2 style="margin:22px 0 2px 0;">猎狗</h2>
-                 <p>第一章</p>
-               </a>
-           </div>
+             <div class="mian-article" style="margin-top: 30px;">
 
 
+                <!--顶部标题-->
+                <div>
+                  <img src="images/locker-06.png" style="margin: 0px 0 0 24px;width: 30%;">
+                  <!-- <h1 style="margin: 20px 0 10px 24px;font-size: 2em;"><bold>抽屉欢迎你</bold></h1> -->
+                  <p style="margin: 25px 22px 10px;font-size: 1.2em;">我叫晓聪，目前是网易美学的交互设计师</p>
+                  <p style="margin: 0px 22px 10px;font-size: 0.9em;color: #5E5E5E;"><i class="em em-point_right" style="margin-right: 10px;"></i>由于项目繁忙，18年内容更新在印象笔记<i class="em em-point_left" style="margin-left:10px;"></i></p>
+                  <a href="content.html"></a>
+                </div>
+
+
+                <!--关于用户增长的思考-->
+                <div class="article">
+                     <a href="posts/20180629.html">
+                        <div class="item item-image" style="border-radius: 4px;">
+                           <img src="images/article/20180629/cover.jpg">
+                        </div>
+                     </a>
+                     <h4>INS:欢迎使用IGTV</h4>
+                </div>
+
+
+                <!--卡片阅读模块-->
+                <h1 style="margin: 35px 0 0px 24px;font-size: 2em;">探索</h1>
+                <div class="article">
+                  <div class="item item-image" style="text-align: left;">
+
+                      <ion-scroll zooming="true" direction="x" scrollbar-x="false" scrollbar-y="false" style="width: 386px; height: 130px;">
+                        <div style="width: 410px; height: 130px;">
+                          <ul style="display: flex;">
+
+                            <!--第一张卡片（封面）-->
+                            <!-- <div ng-controller="PopupCtrl" style="margin-right: 5px;">
+                              <a href="#" ng-click="showAlert()">
+                                <img style="border-radius: 0px; width:270px; height:270px;     margin-right: 10px;" src="images/article/20170717/card01.jpg"> 
+                              </a>
+                            </div> -->
+
+                            <!--体验设计-->
+                            <a href="content.html">
+                              <li style="margin-right: 10px;">
+                                
+                                      <div class="list card" style="width: 130px; height: 130px; margin: 0; padding: 0; border-top: 1px solid #dadada; box-shadow: none;">
+                                          <div class="item item-body" style="height: 129px; padding: 0px 0px; margin-top: 0; border: 1px solid #dadada;border-radius: 4px;">
+                                            <img class="full-image" style="border-radius: 0px; height: 70px;" src="images/ArticleCatalog/1.png">
+                                            <p style="padding: 20px 10px 10px; margin: 0; font-size: 13px;color: #000;">
+                                              <strong>体验设计</strong>
+                                            </p>
+                                          </div>
+                                      </div> 
+                                
+                              </li>
+                            </a>
+
+                            <!--alert点击弹窗js-->
+                             <script type="text/javascript">
+                                angular.module('ionicApp', ['ionic'])
+                                .controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
+                                 // Triggered on a button click, or some other target
+                                 $scope.showPopup = function() {
+                                   $scope.data = {}
+
+                                   // An elaborate, custom popup
+                                   var myPopup = $ionicPopup.show({
+                                     template: '<input type="password" ng-model="data.wifi">',
+                                     title: 'Enter Wi-Fi Password',
+                                     subTitle: 'Please use normal things',
+                                     scope: $scope,
+                                     buttons: [
+                                       { text: 'Cancel' },
+                                       {
+                                         text: '<b>Save</b>',
+                                         type: 'button-positive',
+                                         onTap: function(e) {
+                                           if (!$scope.data.wifi) {
+                                             //don't allow the user to close unless he enters wifi password
+                                             e.preventDefault();
+                                           } else {
+                                             return $scope.data.wifi;
+                                           }
+                                         }
+                                       },
+                                     ]
+                                   });
+                                   myPopup.then(function(res) {
+                                     console.log('Tapped!', res);
+                                   });
+                                   $timeout(function() {
+                                      myPopup.close(); //close the popup after 3 seconds for some reason
+                                   }, 3000);
+                                  };
+
+
+                                   // An alert dialog
+                                   $scope.showAlert = function() {
+                                     var alertPopup = $ionicPopup.alert({
+                                       title: 'Opps',
+                                       template: '尚未开放~',
+                                       okText: '明白了'
+                                     });
+                                     alertPopup.then(function(res) {
+                                       console.log('Thank you for not eating my delicious ice cream cone');
+                                     });
+                                   };
+                                });
+                             </script>
+          
+                            
+                            <!--产品模式-->
+                            <a href="pattern.html">
+                              <li style="margin-right: 10px;">
+                                <div ng-controller="PopupCtrl">
+                                      <div class="list card" style="width: 130px; height: 130px; margin: 0; padding: 0; border-top: 1px solid #dadada; box-shadow: none;">
+
+                                          <div class="item item-body" style="height: 129px; padding: 0px 0px; margin-top: 0; border: 1px solid #dadada;border-radius: 4px;">
+                                            <img class="full-image" style="border-radius: 0px; height: 70px;" src="images/ArticleCatalog/2.png">
+                                            <p style="padding: 20px 10px 10px; margin: 0; font-size: 13px;color: #000;">
+                                              <strong>产品模式</strong>
+                                            </p>
+                                          </div>
+                                      </div> 
+                                </div>
+                              </li>
+                            </a>
+
+                            <!--可用性-->
+                            <li style="margin-right: 10px;">
+                              <div ng-controller="PopupCtrl">
+                                    <div href="#" ng-click="showAlert()" class="list card" style="width: 130px; height: 130px; margin: 0; padding: 0; border-top: 1px solid #dadada; box-shadow: none;">
+
+                                        <div class="item item-body" style="height: 129px; padding: 0px 0px; margin-top: 0; border: 1px solid #dadada;border-radius: 4px;">
+                                          <img class="full-image" style="border-radius: 0px; height: 70px;" src="images/ArticleCatalog/3.png">
+                                          <p style="padding: 20px 10px 10px; margin: 0; font-size: 13px;color: #000;">
+                                            <strong>可用性</strong>
+                                          </p>
+                                        </div>
+                                    </div> 
+                              </div>
+                            </li>
 
 
 
-         </div>
-       </div>
-
-       <div class="_blank" style="height:50px;padding-top:15px;color:#cfcfcf;">
-          <p style="text-align:center;">—有一集就先将就着看吧—</p>
-       </div>
-    </ion-content>
-
+                          </ul> 
+                        </div>
+                      </ion-scroll>
+                  </div>
+                </div>
   
-  </div>
 
-    </body>
+                <!--阅读推荐-->
+                <h1 style="margin: 35px 0 0px 24px;font-size: 2em;">阅读推荐</h1>
 
-  <script type="text/javascript">
-    wx.onMenuShareAppMessage({
-    title: '', // 分享标题
-    desc: '纪录琐碎却重要的事', // 分享描述
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
-    type: '', // 分享类型,music、video或link，不填默认为link
-    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-    success: function () { 
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () { 
-        // 用户取消分享后执行的回调函数
-    } 
-});  
+                <div class="ArticleFeeds">
 
-  </script>
-  
-  <!--在线字体引用-->
-  <script type="text/javascript">
-    $youziku.load("body", "31fc15ad71bb45ca9ac5b449483b56ce", "Microsoft_YaHei");
-    /*$youziku.load("#id1,.class1,h1", "31fc15ad71bb45ca9ac5b449483b56ce", "Microsoft_YaHei");*/
-    /*．．．*/
-    $youziku.draw();
-  </script>
+                  <!--Insgram-->
+                  <div class="ArticleColumn1">
+                    <a href="posts/20171126.html">
+                      <div class="item item-image" style="border-radius: 4px;">
+                        <img src="images/article/20171126/cover.jpg">
+                      </div>
+                    </a>
+                    <div style="padding-top: 12px;">
+                      <p class="FristTitle" style="font-size:15px;"><strong>Ins快拍内容预期设计</strong></p>
+                      <p class="SecondTitle">体验设计</p>
+                    </div>
+                  </div>
+
+                  <!--社区型用户增长思考-->
+                  <div class="ArticleColumn2">
+                    <a href="posts/20180523.html">
+                      <div class="item item-image" style="border-radius: 4px;">
+                        <img src="images/article/20180523/cover.jpg">
+                      </div>
+                    </a>
+                    <div style="padding-top: 12px;">
+                      <p class="FristTitle" style="font-size:15px;"><strong>关于社区型产品用户增长的思考</strong></p>
+                      <p class="SecondTitle">产品模式</p>
+                    </div>
+                  </div>
+
+
+                  <!--网易美学做评论弹幕的利弊-->
+                  <div class="ArticleColumn1">
+                    <a href="posts/20180524.html">
+                      <div class="item item-image" style="border-radius: 4px;">
+                        <img src="images/article/20180524/cover.jpg">
+                      </div>
+                    </a>
+                    <div style="padding-top: 12px;">
+                      <p class="FristTitle" style="font-size:15px;"><strong>网易美学做评论弹幕的利弊</strong></p>
+                      <p class="SecondTitle">产品模式 · 可用性</p>
+                    </div>
+                  </div>
+
+                  <!--如何帮助用户做出最聪明的选择-->
+                  <div class="ArticleColumn2">
+                    <a href="posts/20170521.html">
+                      <div class="item item-image" style="border-radius: 4px;">
+                        <img src="images/article/20170521/cover.jpg">
+                      </div>
+                    </a>
+                    <div style="padding-top: 12px;">
+                      <p class="FristTitle" style="font-size:15px;"><strong>如何帮助用户做出最聪明的选择</strong></p>
+                      <p class="SecondTitle">体验设计 · 可用性</p>
+                    </div>
+                  </div>                      
+
+
+                </div>
+                  
+                
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+             
+
+
+
+             <button onclick="window.location.href='content.html'" class="button button-block button-light" style="border-color: #f2f2f2;width: 22rem;margin: 0 auto;font-size: 0.8rem;">
+                查看更多
+             </button>
+
+             <!-- <div class="_blank" style="height:50px;padding-top:30px;color:#cfcfcf;">
+                <p style="text-align:center;">—没有了还翻什么—</p>
+             </div> -->
+          </ion-content>
+          
+          <!--这里是底部TAB-->
+          <!-- <div class="tabs-striped tabs-color-assertive" style="color: #ff3728;border: 0 solid #ff3728;">
+            <div class="tabs">
+              <a class="tab-item active" href="index.html">
+                博客
+              </a>
+
+              <a class="tab-item" href="#">
+                关于
+              </a>
+            </div>
+          </div> -->
 </body>
 </html>
